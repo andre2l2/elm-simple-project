@@ -1,10 +1,11 @@
 module Main exposing (..)
 
 import Browser
+import Utils
 import Html exposing (Html, button, div, text, section, input, label, span)
 import Html.Events exposing (onClick, onInput)
 import Html.Attributes exposing (style, placeholder, value, type_)
-import Utils exposing (parseFloat)
+
 
 -- MAIN
 
@@ -45,13 +46,13 @@ update msg model =
       { model | result = (model.initalValue * model.percent) * model.years  }
 
     ChangeInitalValue initalValue  ->
-      { model | initalValue = parseFloat initalValue }
+      { model | initalValue = Utils.parseFloat initalValue }
 
     ChangePercentValue percentValue -> 
-      { model | percent = parseFloat percentValue }
+      { model | percent = Utils.parseFloat percentValue }
 
     ChangeYearsValue yearsValue -> 
-      { model | years = parseFloat yearsValue }
+      { model | years = Utils.parseFloat yearsValue }
 
 
 -- VIEW
